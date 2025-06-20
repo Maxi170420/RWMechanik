@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mechaniker Roland</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="top"></div>
+    <div id="intro">
+        <h1>🔧 Mechaniker Roland</h1>
+        <p>Technik von morgen.</p>
+    </div>
+
+
+
+    <div class="container">
+        <header>
+            <h1>Mechaniker Roland</h1>
+            <p>High-Tech Werkstatt für Fahrzeuge und mehr</p>
+        </header>
+
+        <nav class="navbar" aria-label="Hauptnavigation">
+            <div class="logo"><a href="#top">Startseite</a></div>
+            <div class="menu-toggle" id="menu-toggle">☰</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a class="nav-item" href="#ueberuns">Über uns</a></li>
+                <li><a class="nav-item" href="#leistungen">Leistungen</a></li>
+                <li><a class="nav-item" href="#unserearbeit">Unsere Arbeit</a></li>
+                <li><a class="nav-item" href="#kontakt">Kontakt</a></li>
+                <li><a class="nav-item" href="#standort">Standort</a></li>
+            </ul>
+        </nav>
+
+        <section id="ueberuns" class="ueber-uns" data-aos="fade-up">
+            <h2>Über uns</h2>
+            <p>
+                Roland führt ein Kleinunternehmen mit mehr als 10 Jahren Erfahrung als zertifizierter Master.
+                Wir stehen für Präzision, Zuverlässigkeit und Leidenschaft für Technik.
+                Mit echter Handwerkskunst bringen wir klassische sowie moderne Fahrzeuge in Bestform – persönlich und ehrlich.
+            </p>
+        </section>
+
+        <section id="leistungen" class="leistungen" data-aos="fade-right">
+            <h2>Unsere Leistungen</h2>
+            <div class="leistungen-grid">
+                <div class="leistung">
+                    🔧 <h3>Reparatur & Service</h3>
+                    <p>Wartung und Instandsetzung von KFZ & Maschinen</p>
+                </div>
+                <div class="leistung">
+                    ⚙️ <h3>Motorentechnik</h3>
+                    <p>Diagnose & Optimierung moderner Antriebe</p>
+                </div>
+                <div class="leistung">
+                    🚗 <h3>Fahrzeugaufbereitung</h3>
+                    <p>Politur, Reinigung und Pflege innen & außen</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="unserearbeit" class="bilder" data-aos="zoom-in">
+            <h2>Unsere Arbeit</h2>
+            <div class="galerie-wrapper">
+                <button class="scroll-button left" onclick="scrollGallery(-1)" aria-label="Galerie nach links scrollen">❮</button>
+
+                <div class="galerie-scroll" id="galerieScroll">
+                    <img src="bilder/bild1.jpg" alt="Werkstatt">
+                    <img src="bilder/bild2.jpg" alt="Auto">
+                    <img src="bilder/bild3.jpg" alt="Maschine">
+                    <img src="bilder/bild4.jpg" alt="OldTimer">
+                </div>
+
+                <button class="scroll-button right" onclick="scrollGallery(1)" aria-label="Galerie nach rechts scrollen">❯</button>
+            </div>
+        </section>
+
+        <section id="kontakt" class="kontakt" data-aos="fade-up">
+            <h2>Kontaktformular</h2>
+            <form action="https://formsubmit.co/DEINE_EMAIL@mail.de" method="POST">
+                <input type="text" name="name" placeholder="Ihr Name" required />
+                <input type="email" name="email" placeholder="Ihre E-Mail" required />
+                <textarea name="nachricht" rows="5" placeholder="Ihre Nachricht..." required></textarea>
+                <button type="submit">Nachricht senden</button>
+            </form>
+            <div class="anruf-button" data-aos="fade-up">
+                <a href="tel:0123456789">📞 Jetzt anrufen</a>
+            </div>
+        </section>
+
+        <section id="standort" class="standort" data-aos="fade-up">
+            <h2>Standort</h2>
+            <p><strong>Adresse:</strong> Hauptstraße 12, 12345 Musterstadt</p>
+            <p><strong>Telefon:</strong> 0123 456789</p>
+            <p><strong>E-Mail:</strong> kontakt@mechanik-maier.de</p>
+            <p><strong>Standort :</strong></p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3814.8366062779705!2d14.869421799999996!3d46.86479219999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477020c9f2905b23%3A0xe2ea719352f83dcc!2sZellach%2064%2C%209413%20Zellach!5e1!3m2!1sde!2sat!4v1750249683362!5m2!1sde!2sat"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Mechaniker Roland – Technik von Morgen</p>
+        </footer>
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+
+    <!-- Nach dem AOS-Code -->
+    <script>
+        // Scrollt bei echter Neuladung IMMER nach oben
+        window.onload = function () {
+            window.scrollTo(0, 0);
+        };
+        // Scrollt bei "Back/Forward Navigation" ebenfalls nach oben
+        window.addEventListener("pageshow", function (event) {
+            if (event.persisted) {
+                window.scrollTo(0, 0);
+            }
+        });
+    </script>
+
+    <!-- Dein eigenes JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
+

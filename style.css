@@ -1,0 +1,374 @@
+:root {
+    --accent-color: #ffaa00;
+    --accent-color-dark: #cc8800;
+    --accent-color-light: rgba(255, 170, 0, 0.15);
+    --background-dark: #1a1a1a;
+    --background-darker: #0f0f0f;
+}
+
+/* Grundlayout & Schrift */
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: #e0e0e0;
+    background: var(--background-dark) url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    background-size: auto;
+    background-repeat: repeat;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 75px;
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: radial-gradient(circle at top, #2a2a2a, var(--background-darker));
+    border-bottom: 1px solid #444;
+}
+
+h1 {
+    font-size: 3em;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+/* Sektionen */
+section, .ueber-uns {
+    margin-top: 40px;
+    background: rgba(60, 60, 60, 0.15);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+    color: var(--accent-color);
+    margin-top: 0;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+
+/* Galerie */
+.galerie-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.galerie-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: flex-start;
+}
+
+    .galerie-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .galerie-scroll img {
+        flex: 0 0 auto;
+        width: 300px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 0 10px var(--accent-color-light);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .galerie-scroll img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 170, 0, 0.4);
+        }
+
+/* Scroll-Pfeile */
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 170, 0, 0.1);
+    border: none;
+    color: var(--accent-color);
+    font-size: 2em;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1;
+    transition: background 0.3s;
+}
+
+    .scroll-button:hover {
+        background: rgba(255, 170, 0, 0.3);
+    }
+
+    .scroll-button.left {
+        left: 10px;
+    }
+
+    .scroll-button.right {
+        right: 10px;
+    }
+
+/* Kontaktformular */
+.kontakt form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.kontakt input,
+.kontakt textarea {
+    padding: 10px;
+    font-size: 1em;
+    background: #2c2c2c;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.kontakt button {
+    background-color: var(--accent-color);
+    color: #000;
+    padding: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .kontakt button:hover {
+        background-color: var(--accent-color-dark);
+    }
+
+/* Leistungen */
+.leistungen-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.leistung {
+    flex: 1 1 250px;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+    .leistung h3 {
+        margin-top: 10px;
+        color: var(--accent-color);
+    }
+
+/* Über uns */
+.ueber-uns {
+    font-size: 1.1em;
+}
+
+/* Anruf-Button */
+.anruf-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+    .anruf-button a {
+        display: inline-block;
+        padding: 15px 25px;
+        background: var(--accent-color);
+        color: #000;
+        font-weight: bold;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+        .anruf-button a:hover {
+            background: var(--accent-color-dark);
+        }
+
+/* INTRO SCREEN - KORREKTE VERSION */
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0 1rem;
+    background: var(--background-darker);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    text-align: center;
+    animation: fadeOut 2s ease 1 forwards;
+    animation-delay: 1.5s;
+}
+
+    #intro h1 {
+        color: var(--accent-color);
+        font-size: clamp(1.5rem, 7vw, 2.5rem);
+        line-height: 1.2;
+        white-space: normal !important; /* KEIN nowrap mehr */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 90%; /* sorgt dafür, dass der Text am Bildschirm bleibt */
+        margin: 0 auto;
+    }
+
+    #intro p {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        color: #ccc;
+        margin: 10px auto 0 auto;
+        max-width: 90%; /* ebenfalls für schmale Displays */
+    }
+
+
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+
+
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.logo {
+    font-size: 1.3em;
+}
+
+    .logo a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+        .logo a:hover {
+            color: var(--accent-color);
+        }
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+
+    .nav-links li {
+        margin: 0 15px;
+    }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+            .nav-links li a:hover {
+                background-color: var(--accent-color);
+                color: #000;
+            }
+
+            .nav-links li a:active {
+                background-color: var(--accent-color-dark);
+                color: #000;
+            }
+
+.menu-toggle {
+    font-size: 24px;
+    display: none;
+    cursor: pointer;
+}
+
+/* Responsive Styles Navigationsleiste */
+@media (max-width: 768px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: #333;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    body {
+        padding-top: 60px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        margin: 0;
+        padding: 10px;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+    }
+        .nav-links.show {
+            display: flex;
+        }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+/* Animation für das Ausblenden */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+    .galerie-scroll {
+        justify-content: center;
+    }
+
+    #intro {
+        padding: 0 1rem;
+    }
+
+        #intro h1 {
+            font-size: 2em;
+        }
+
+        #intro p {
+            font-size: 1em;
+        }
+}
